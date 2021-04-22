@@ -65,6 +65,31 @@ setInterval(() => {
       toster.classList.add('toster--show')
    }, 2000)
 
+   
+   
+   // Map
+
+   const getLocationForMap = async () => {
+      const getApi = await fetch('http://api.open-notify.org/iss-now.json');
+      const getLocation = await getApi.json();
+      let latitude = getLocation.iss_position.latitude
+      let longitude = getLocation.iss_position.longitude
+
+      function initMap(latitude, longitude) {
+         const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: { lat: +latitude, lng: +longitude }
+         });
+         new google.maps.Marker({
+            position: { lat: +latitude, lng: +longitude },
+            map,
+         });
+      }
+      initMap(latitude, longitude)
+   }
+
+   getLocationForMap()
+
 
 }, 5000)
 
