@@ -94,6 +94,45 @@ setInterval(() => {
 }, 5000)
 
 
+// People in ISS
+
+const peopleInIss = () => {
+   const blockForInform = document.querySelector('.main__RightContainer')
+   const getInform = async () => {
+      const getApi = await fetch('http://api.open-notify.org/astros.json');
+      const getPeople = await getApi.json();
+      let count = 0
+      getPeople.people.map(el => {
+         const listEl = document.createElement('p');
+         listEl.innerHTML = "<img src = 'https://img.icons8.com/material-rounded/48/000000/user-male-circle.png'>"
+         const listText = document.createElement('p')
+         listText.innerHTML = el.name
+         listEl.appendChild(listText)
+         listText.style.display = 'flex';
+         listText.style.alignItems = 'center'
+         listEl.classList.add('listItem')
+         blockForInform.append(listEl)
+         count += 1
+
+      })
+      const listTotalPeople = document.createElement('p');
+      listTotalPeople.style.borderTop = '2px solid black';
+      listTotalPeople.style.margin = ' 0em -0.5em';
+      listTotalPeople.style.padding = '0.5em';
+      listTotalPeople.style.textAlign = 'center';
+
+      listTotalPeople.append('Total amount: ' + count + ' people on ISS')
+      count = 0;
+      blockForInform.append(listTotalPeople)
+
+   }
+   getInform()
+}
+
+peopleInIss()
+
+
+
 
 
 
