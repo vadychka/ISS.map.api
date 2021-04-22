@@ -54,12 +54,19 @@ body {
 .toster {
    position: absolute;
    left: 50%;
+   border-radius: 20px;
    width: 100px;
+   color: white;
+   font-size: 20px;
    height: 20px;
-   border: 2px solid green;
+   border: 0px;
+   background-color: royalblue;
    text-align: center;
    padding: 0.5em;
    box-shadow: 5px 5px 10px grey;
+   &:hover{
+      cursor: progress;
+   }
 
    &--show {
       left: -100%;
