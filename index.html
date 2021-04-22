@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+
+   <link rel="stylesheet" href="css/index.css">
+   <title>Document</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <header class="header">
+         <div class="header__LeftContainer container">
+            <h3>ISS is now location at:</h3>
+            <div id="headre__mcsLocation"></div>
+         </div>
+         <div class="header__RightContainer container">
+            <h3 id='header__time'>Current UTC time: </h3>
+            <div id='header__date'>
+
+            </div>
+         </div>
+      </header>
+
+      <main class="main">
+         <div class="main__LeftContainer container" id="map">
+            <div></div>
+         </div>
+         <div class="main__RightContainer container">
+            <ul class = 'listNames'>
+               
+            </ul>
+         </div>
+      </main>
+
+   </div>
+
+   <div class="toster" id='toster'>
+      <p>Обновлено</p>
+
+   </div>
+
+
+   <script src="js/index.js">
+   </script>
+   <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtIxGQL1ssvHMR8JZKiMoEIEzVmW8HeQ0&callback=initMap&libraries=&v=weekly"
+      async></script>
+
+</body>
+
+</html>
