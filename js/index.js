@@ -20,6 +20,51 @@ setInterval(() => {
 
    mcsLocation()
 
+     // Time
+
+   const getTime = () => {
+      let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+         'Thursday', 'Friday', 'Saturday']
+      let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug',
+         'Sept', 'Oct', 'Nov', 'Dec']
+      let time = new Date
+
+      let fintDayFromDate = (arr) => {
+         let thisDay = time.getDay()
+         return arr[thisDay]
+      }
+
+      let findMonthFronDate = (arr) => {
+         let thisMonth = time.getMonth()
+         return arr[thisMonth]
+      }
+
+      const blockForTime = document.getElementById('header__time')
+      const blockForDate = document.getElementById('header__date')
+
+      blockForTime.innerHTML = 'Current UTC time: ' + time.getHours() + ':' + time.getMinutes() + ':'
+         + time.getSeconds()
+
+      blockForDate.innerHTML = fintDayFromDate(daysOfWeek) + ' '
+         + time.getDate() + " " + findMonthFronDate(months) +
+         ' ' + time.getFullYear()
+   }
+
+   getTime()
+
+   // Toster
+
+   let toster = document.querySelector('#toster')
+   toster.classList.remove('toster--show')
+
+   toster.addEventListener('click', () => {
+      toster.classList.add('toster--show')
+   })
+
+   setTimeout(() => {
+      toster.classList.add('toster--show')
+   }, 2000)
+
 
 }, 5000)
 
