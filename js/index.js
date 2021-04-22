@@ -102,6 +102,7 @@ const peopleInIss = () => {
       const getApi = await fetch('http://api.open-notify.org/astros.json');
       const getPeople = await getApi.json();
       let count = 0
+      blockForInform.innerHTML = ''
       getPeople.people.map(el => {
          const listEl = document.createElement('p');
          listEl.innerHTML = "<img src = 'https://img.icons8.com/material-rounded/48/000000/user-male-circle.png'>"
